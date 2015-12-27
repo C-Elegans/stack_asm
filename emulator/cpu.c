@@ -36,5 +36,7 @@ uint16_t peek(){
 void out(){
 	uint16_t val = pop();
 	printf("Out: %d\n",val);
-
+}
+void dup(){
+	push(peek());
 }

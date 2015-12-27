@@ -4,6 +4,7 @@ instructions = {
         "sub":2,
         "out":3,
         "in":4,
+        "dup":5,
         
         
         

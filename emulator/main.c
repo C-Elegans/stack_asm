@@ -16,6 +16,7 @@ int decodeInstruction(){
 		case ADD:add(); break;
 		case SUB:sub(); break;
 		case OUT:out(); break;
+		case DUP:dup(); break;
 	}
 	return 1;
 
