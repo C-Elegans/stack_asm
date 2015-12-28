@@ -1,8 +1,13 @@
-push 12
-push 2
-eq
-cjump end
+jump start
+test:
 push 1
 out
-end: nop
+jump end
 
+start: push 2
+push 12
+gt
+cjump test
+push 0
+out
+end: nop
