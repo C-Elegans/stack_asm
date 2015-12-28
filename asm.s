@@ -1,8 +1,8 @@
-nop
-nop
-push 3700
-push 1
+push 5
+lbl: push 23
+push 37
 add
-dup
 out
-out
+push 1
+sub
+cjump lbl
