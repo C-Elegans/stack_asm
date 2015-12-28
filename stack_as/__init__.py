@@ -26,7 +26,7 @@ def main():
                 tokens.pop(0)
                 if len(tokens) == 0:
                     continue
-            byte_counter += isa.getInstructionBytes(tokens)
+            byte_counter += isa.getInstructionBytes(tokens,byte_counter)
   
     for line in lines:
         line = re.sub(r"\;.*","",line)

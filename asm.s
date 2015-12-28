@@ -1,13 +1,9 @@
-jump start
-test:
+start:
+nop
 push 1
-out
-jump end
-
-start: push 2
-push 12
-gt
-cjump test
-push 0
-out
-end: nop
+nop
+push 2
+add 
+out 
+nop
+jump start

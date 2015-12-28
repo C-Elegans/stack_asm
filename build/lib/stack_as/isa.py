@@ -23,7 +23,7 @@ byte_counter = 0
 def decodeInstruction(tokens):
     global byte_counter
     global labels
-    byte_counter += getInstructionBytes(tokens)
+    byte_counter += getInstructionBytes(tokens,byte_counter)
     op = instructions[tokens[0]]
     if(op == 128):
         val = 0
@@ -31,6 +31,8 @@ def decodeInstruction(tokens):
         if(val>= 1<<14):
             raise ValueError("Value "+str(val) +" is too large to encode")
         l = []
+        if byte_counter %2:
+            l.append(0)
         l.append(128 + ((val>>8)&127))
         l.append(val & 255)
         return l
@@ -43,12 +45,14 @@ def decodeInstruction(tokens):
         if(val>= 1<<12):
             raise ValueError("Value "+str(val) +" is too large to encode")
         l = []
+        if byte_counter %2:
+            l.append(0)
         l.append(op + ((val>>8)&31))
         l.append(val & 255)
         return l
     
     return [op]
-def getInstructionBytes(tokens):
+def getInstructionBytes(tokens,byte_counter):
     op = instructions[tokens[0]]
     if(op > 31):
         return 2
