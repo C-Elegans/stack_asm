@@ -12,6 +12,7 @@ instructions = {
         "lt":10,
         "eq":11,
         "gt":12,
+        "neg":13,
         "jump":32,
         "call":64,
         "cjump":64+32,

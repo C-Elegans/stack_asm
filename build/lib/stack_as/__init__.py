@@ -20,9 +20,9 @@ def main():
         
             if label_pattern.match(tokens[0]):
                 label = tokens[0][:-1]
-                print "label: " + label + " at: " + str(byte_counter)
+                
                 isa.labels[label] = byte_counter
-                print isa.labels
+                
                 tokens.pop(0)
                 if len(tokens) == 0:
                     continue
