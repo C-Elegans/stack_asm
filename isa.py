@@ -8,8 +8,12 @@ instructions = {
         "drop":6,
         "swap":7,
         "rot":8,
-        
+        "ret":9,
+        "lt":10,
+        "eq":11,
+        "gt":12,
         "jump":32,
+        "call":64,
         "cjump":64+32,
         "push":128,
         }
@@ -29,7 +33,7 @@ def decodeInstruction(tokens):
         l.append(128 + ((val>>8)&127))
         l.append(val & 255)
         return l
-    elif(op == 32 or op == 96):
+    elif(op == 32 or op == 96 or op == 64):
         print tokens[1] 
         if tokens[1] in labels:
             val = labels[tokens[1]]- byte_counter

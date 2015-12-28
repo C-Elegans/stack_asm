@@ -1,8 +1,8 @@
-push 5
-lbl: push 23
-push 37
-add
-out
+push 12
+push 2
+eq
+cjump end
 push 1
-sub
-cjump lbl
+out
+end: nop
+
