@@ -1,8 +1,0 @@
-setup.py
-stack_as/__init__.py
-stack_as/isa.py
-stack_as.egg-info/PKG-INFO
-stack_as.egg-info/SOURCES.txt
-stack_as.egg-info/dependency_links.txt
-stack_as.egg-info/entry_points.txt
-stack_as.egg-info/top_level.txt

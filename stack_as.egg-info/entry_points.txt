@@ -1,3 +1,0 @@
-[console_scripts]
-stack_as = stack_as:main
-

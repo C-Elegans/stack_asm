@@ -3,3 +3,9 @@ sim
 *.pyc
 *~*
 .*un*
+asm.s
+build/*
+dist/*
+stack_as.egg-info/*
+test
+test.hex

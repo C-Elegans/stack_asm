@@ -8,7 +8,7 @@ setup(
     long_description=open('README.md').read(),
     entry_points = {
         "console_scripts":[
-            "stack_as = stack_as:main"
+            "stack_as = stack_as:cmdline"
         ]
     }
 )

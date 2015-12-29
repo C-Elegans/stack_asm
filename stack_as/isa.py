@@ -16,6 +16,11 @@ instructions = {
         "rpush":14,
         "rpop":15,
         "rcp":16,
+        "and":17,
+        "or":18,
+        "xor":19,
+        "lshift":20,
+        "rshift":21,
         "jump":32,
         "call":64,
         "cjump":64+32,
@@ -36,13 +41,15 @@ def decodeInstruction(tokens):
             raise ValueError("Value "+str(val) +" is too large to encode")
         
         if byte_counter % 2:
-            print "padded instruction"
+            #print "padded instruction"
             l.append(0)
-        l.append(128 + ((val>>8)&64))
+        
+        l.append(128 + ((val>>8)&63))
         l.append(val & 255)
+        print val&255
         
     elif(op == 32 or op == 96 or op == 64):
-        print tokens[1] 
+        #print tokens[1] 
         if tokens[1] in labels:
             val = labels[tokens[1]]- (byte_counter+2)
         else:
@@ -51,7 +58,7 @@ def decodeInstruction(tokens):
             raise ValueError("Value "+str(val) +" is too large to encode")
         
         if byte_counter % 2:
-            print "padded instruction"
+            #print "padded instruction"
             val -= 1
             l.append(0)
         l.append(op + ((val>>8)&31))

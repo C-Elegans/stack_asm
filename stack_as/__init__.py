@@ -1,13 +1,8 @@
 #!/usr/bin/python
 import isa
 import os,sys,re
-def main():
-    if len(sys.argv) != 3:
-        print "Usage: stack_as [asm.s] [outfile]"
-        sys.exit(1)
-    f = open(sys.argv[1],"r")
-    lines = f.readlines()
-    out = open(sys.argv[2],"wb")
+def main(lines):
+    
     label_pattern = re.compile(r"^.*:") #matches a label
     arr = []
 
@@ -39,9 +34,26 @@ def main():
                     continue
             ret = isa.decodeInstruction(tokens)
             arr.extend(ret)
-    print arr
+    #print arr
+    return arr
+    
+def cmdline():
+    if len(sys.argv) != 3:
+        print "Usage: stack_as [asm.s] [outfile]"
+        sys.exit(1)
+    f = open(sys.argv[1],"r")
+    lines = f.readlines()
+    out = open(sys.argv[2],"wb")
+    arr = main(lines)
     byte_array = bytearray(arr)
     out.write(byte_array)
-
 if __name__ == "__main__":
-    main()
+    if len(sys.argv) != 3:
+        print "Usage: stack_as [asm.s] [outfile]"
+        sys.exit(1)
+    f = open(sys.argv[1],"r")
+    lines = f.readlines()
+    out = open(sys.argv[2],"wb")
+    arr = main(lines)
+    byte_array = bytearray(arr)
+    out.write(byte_array)
