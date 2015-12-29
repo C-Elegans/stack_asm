@@ -13,6 +13,9 @@ instructions = {
         "eq":11,
         "gt":12,
         "neg":13,
+        "rpush":14,
+        "rpop":15,
+        "rcp":16,
         "jump":32,
         "call":64,
         "cjump":64+32,
@@ -35,7 +38,7 @@ def decodeInstruction(tokens):
         if byte_counter % 2:
             print "padded instruction"
             l.append(0)
-        l.append(128 + ((val>>8)&127))
+        l.append(128 + ((val>>8)&64))
         l.append(val & 255)
         
     elif(op == 32 or op == 96 or op == 64):
@@ -59,7 +62,7 @@ def decodeInstruction(tokens):
     
     return l
 def getInstructionBytes(tokens,byte_counter):
-    print str(byte_counter) + str(tokens)
+    
     op = instructions[tokens[0]]
     if(op > 31):
         if byte_counter %2:
