@@ -35,6 +35,8 @@ def main(lines):
             ret = isa.decodeInstruction(tokens)
             arr.extend(ret)
     #print arr
+    if len(arr) %2:
+        arr.append(0)
     return arr
     
 def cmdline():
@@ -45,6 +47,7 @@ def cmdline():
     lines = f.readlines()
     out = open(sys.argv[2],"wb")
     arr = main(lines)
+    
     byte_array = bytearray(arr)
     out.write(byte_array)
 if __name__ == "__main__":
