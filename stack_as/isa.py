@@ -49,7 +49,7 @@ def decodeInstruction(tokens):
         
         l.append(128 + ((val>>8)&63))
         l.append(val & 255)
-        print val&255
+       # print val&255
         
     elif(op == 32 or op == 96 or op == 64):
         #print tokens[1] 
